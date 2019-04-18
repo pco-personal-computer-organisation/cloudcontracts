@@ -1,0 +1,15 @@
+<!--<div class="btn-group" uib-dropdown is-open="status.isopen" ng-init="data.dateRange={}">
+  <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
+    {{data.dateRange.dtFrom | date: 'dd.MM.yyyy'}} - {{data.dateRange.dtTo | date: 'dd.MM.yyyy'}} <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+    <li role="menuitem" ng-repeat="days in [30, 60, 90]"><a href ng-click="data.dateRange=fn.dateRangeFromToday(days)">{{days}} Tage</a></li>
+    <li class="divider"></li>
+    <li role="menuitem">
+      <div uib-datepicker ng-model="data.dateRange.dtFrom" class="well well-xs" datepicker-options="fromOptions"></div>
+      <div uib-datepicker ng-model="data.dateRange.dtTo" class="well well-xs" datepicker-options="toOptions"></div>
+    </li>
+  </ul>
+</div>-->
+
+<input date-range-picker class="form-control date-picker" type="text" ng-model="params.filter()[name]" options="$ctrl.rangepickerOptions" ng-init="params.filter()[name]={}">

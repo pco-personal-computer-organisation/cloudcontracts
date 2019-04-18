@@ -1,0 +1,45 @@
+{
+  "name": "Dokumenttyp",
+  "plural": "Dokumenttypen",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "cm4it",
+    "table": "dokumenttypen"
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true,
+      "required": false
+    },
+    "bezeichnung": "String"
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "readonly",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

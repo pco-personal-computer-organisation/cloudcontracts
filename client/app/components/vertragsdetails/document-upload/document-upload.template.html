@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h3 class="modal-title">Dokument hochladen</h3>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" enctype="multipart/form-data" name="uploadForm">
+    <div class="form-group">
+      <label class="col-lg-3 control-label" for="Datei">Datei</label>
+      <div class="col-lg-9">
+        <input type="file" name="Datei" ngf-select ng-model="$ctrl.file" required>
+      </div>
+    </div>
+  </form>
+  <uib-progressbar animate="false" value="$ctrl.progress" ng-show="$ctrl.uploading"><b>{{$ctrl.progress}}%</b></uib-progressbar>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="$ctrl.upload()" ng-disabled="$ctrl.uploading">Speichern</button>
+  <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

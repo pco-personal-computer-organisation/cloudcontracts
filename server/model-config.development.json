@@ -1,0 +1,204 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "AccessToken": {
+    "dataSource": "cm4it",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "cm4it",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "cm4it",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "cm4it",
+    "public": true
+  },
+  "Kategorien": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Sla": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Termine": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertrag": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Dokumente": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Historie": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertragsgegenstaende": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertragspartner": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Faelligkeit": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Kuendigungsfrist": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Kuendigungsoption": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Laufzeitende": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Status": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertragsart": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Waehrung": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "DocumentStorage": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "Kunde": {
+    "dataSource": "cm4it",
+    "public": false,
+    "$promise": {},
+    "$resolved": true
+  },
+  "AssetProperty": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "SmtpRecipient": {
+    "dataSource": "cm4it",
+    "public": false,
+    "$promise": {},
+    "$resolved": true
+  },
+  "SmtpRecipientGroup": {
+    "dataSource": "cm4it",
+    "public": false,
+    "$promise": {},
+    "$resolved": true
+  },
+  "SmtpMail": {
+    "dataSource": "cm4it",
+    "public": false,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Kosten": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertragsliste": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vertragspartnerliste": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Userlist": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Bericht": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Dokumenttyp": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "ImportExport": {
+    "dataSource": "cm4it",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  }
+}

@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="btn-group" role="group" aria-label="">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.$location.path('/vertrag/edit/')" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Neuer Vertrag</button>
+        <!--<button type="button" class="btn btn-default" ng-click="$ctrl.$location.path('/termine')" ng-if="user.role.name!='readonly'"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Neuer Termin</button>-->
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Suche nach..." ng-model="$ctrl.searchModel" ng-keypress="$event.which==13? $ctrl.search($ctrl.searchModel) : null">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="$ctrl.search($ctrl.searchModel)">Finden</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="well col-md-12">
+
+    <div class="col-md-1">
+      <img ng-src="{{$ctrl.loadAmpel($ctrl.ampel.farbe)}}" class="img-responsive">
+    </div>
+
+    <div class="col-md-11">
+      <h3 ng-if="dashboardCount.count>0">Bei {{$ctrl.dashboardCount.count}} {{$ctrl.dashboardCount.count==1? 'Vertrag' : 'Verträgen'}} ist Ihr Eingreifen notwendig!</h3>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">K&uuml;ndigungsfrist</div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <th>Vertrag</th>
+              <th>Vertragspartner</th>
+              <th>K&uuml;ndigungsfrist</th>
+              <th>&nbsp;</th>
+            </thead>
+            <tbody>
+              <tr ng-if="$ctrl.vertraegeKuendigung.length==0"><td colspan="4" class="text-center">Keine auslaufenden Vertr&auml;ge vorhanden</td></tr>
+              <tr ng-repeat="vertrag in $ctrl.vertraegeKuendigung | limitTo: $ctrl.countKuendigung">
+                <td><span class="label label-dashboard" ng-class="{ 'label-warning': $ctrl.daysDiff(vertrag, 'kuendigungsdatum') > 30, 'label-danger': $ctrl.daysDiff(vertrag, 'kuendigungsdatum') <= 30 }">{{$ctrl.daysDiff(vertrag, 'kuendigungsdatum')}} Tage</span> <a href="/vertrag/{{vertrag.id}}/">{{vertrag.bezeichnung}}</a></td>
+                <td>{{vertrag.vertragspartner.firmenname}}</td>
+                <td>{{vertrag.kuendigungsdatum | date: 'dd.MM.yyyy'}}</td>
+                <td>
+                  <a ng-href="mailto:{{vertrag.vertragspartner.mail || ''}}?subject=Vertrag {{vertrag.vertragsnr}} - {{vertrag.bezeichnung}}&amp;body=Laufzeitbeginn: {{vertrag.laufzeitbeginn}}%0A%0DLaufzeitende: {{vertrag.laufzeitende}}%0A%0DKündigungsfrist: {{vertrag.kuendigungsfrist === 0 ? 'sofort' : vertrag.kuendigungsfrist}} {{vertrag.kuendigungsfrist ? 'Monat' + (vertrag.kuendigungsfrist === 1 ? '' : 'e') : ''}} ({{vertrag.kuendigungsdatum | date: 'dd.MM.yyyy'}})%0A%0DKosten: {{vertrag.kosten}}%0A%0D%0A%0Dweitere Vertragsdaten unter {{$ctrl.$location.absUrl().replace($ctrl.$location.url(), '')}}/vertrag/{{vertrag.id}}/" uib-tooltip="E-Mail versenden"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+                  <a href ng-click="$ctrl.renewContract(vertrag.id)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-check" aria-hidden="true" uib-tooltip="Diesen Vertrag verlängern"></span></a>
+                  <a href ng-click="$ctrl.terminateContract(vertrag.id)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" uib-tooltip="Diesen Vertrag kündigen"></span></a>
+                </td>
+              </tr>
+              <tr ng-hide="$ctrl.countKuendigung>=$ctrl.vertraegeKuendigung.length"><td colspan="4"><a href class="text-muted" ng-click="$ctrl.countKuendigung=$ctrl.countKuendigung+5">Mehr...</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Laufzeitende</div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <th>Vertrag</th>
+              <th>Vertragspartner</th>
+              <th>Laufzeitende</th>
+              <th>&nbsp;</th>
+            </thead>
+            <tbody>
+              <tr ng-if="$ctrl.vertraegeLaufzeit.length==0"><td colspan="4" class="text-center">Keine auslaufenden Vertr&auml;ge vorhanden</td></tr>
+              <tr ng-repeat="vertrag in $ctrl.vertraegeLaufzeit | limitTo: $ctrl.countLaufzeit">
+                <td><span class="label label-dashboard" ng-class="{'label-warning': $ctrl.daysDiff(vertrag, 'laufzeitende') > 30, 'label-danger': $ctrl.daysDiff(vertrag, 'laufzeitende')<=30 }">{{$ctrl.daysDiff(vertrag, 'laufzeitende')}} Tage</span> <a href="/vertrag/{{vertrag.id}}/">{{vertrag.bezeichnung}}</a></td>
+                <td>{{vertrag.vertragspartner.firmenname}}</td>
+                <td>{{vertrag.laufzeitende | date: 'dd.MM.yyyy'}}</td>
+                <td>
+                  <a ng-href="mailto:{{vertrag.vertragspartner.mail || ''}}?subject=Vertrag {{vertrag.vertragsnr}} - {{vertrag.bezeichnung}}&amp;body=Laufzeitbeginn: {{vertrag.laufzeitbeginn}}%0A%0DLaufzeitende: {{vertrag.laufzeitende}}%0A%0DKündigungsfrist: {{vertrag.kuendigungsfrist === 0 ? 'sofort' : vertrag.kuendigungsfrist}} {{vertrag.kuendigungsfrist ? 'Monat' + (vertrag.kuendigungsfrist === 1 ? '' : 'e') : ''}} ({{vertrag.kuendigungsdatum | date: 'dd.MM.yyyy'}})%0A%0DKosten: {{vertrag.kosten}}%0A%0D%0A%0Dweitere Vertragsdaten unter {{$ctrl.$location.absUrl().replace($ctrl.$location.url(), '')}}/vertrag/{{vertrag.id}}/" uib-tooltip="E-Mail versenden"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+                  <a href ng-click="$ctrl.renewContract(vertrag.id)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-check" aria-hidden="true" uib-tooltip="Diesen Vertrag verlängern"></span></a>
+                  <a href ng-click="$ctrl.terminateContract(vertrag.id)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" uib-tooltip="Diesen Vertrag kündigen"></span></a>
+                </td>
+              </tr>
+              <tr ng-hide="$ctrl.countLaufzeit>=$ctrl.vertraegeLaufzeit.length"><td colspan="4"><a href class="text-muted" ng-click="$ctrl.countLaufzeit=$ctrl.countLaufzeit+5">Mehr...</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+
+  <div class="well col-md-12">
+    <!--<div class="col-md-6 chart">
+      <div class="panel panel-default">
+        <div class="panel-heading">Chart Monatliche Kosten</div>
+        <div class="panel-body">
+          <div id="gesamtkosten"></div>
+          <div class="legend">
+            <span id="kosten" class="label">Monatl. Gesamtkosten</span>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    <!--<div class="col-md-6">-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Zusammenfassung</div>
+        <div class="panel-body">
+          <ul>
+            <li>{{$ctrl.alleVertraege.count}} Vertr&auml;ge, davon {{$ctrl.aktiveVertraege.count}} aktive Vertr&auml;ge</li>
+            <li>{{$ctrl.vertragspartnerCount.count}} Vertragspartner</li>
+            <li>{{$ctrl.gegenstaendeCount.count}} Vertragsassets</li>
+            <li>{{$ctrl.dokumenteCount.count}} hinterlegte Dokumente</li>
+            <!--<li>430,00€ monatliche Kosten</li>-->
+          </ul>
+        </div>
+      </div>
+    <!--</div>-->
+  </div>
+
+</div>

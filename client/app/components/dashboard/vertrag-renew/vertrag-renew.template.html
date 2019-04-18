@@ -1,0 +1,59 @@
+<div class="modal-header">
+  <h3 class="modal-title">Vertrag {{$ctrl.vertrag.bezeichnung}} verl&auml;ngern</h3>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" name="renewForm">
+    <div class="form-group" ng-if="$ctrl.vertrag.vertragsnr">
+      <label class="col-md-4 control-label" for="Vertragsnummer">Vertragsnummer</label>
+      <div class="col-md-8">
+        <p class="form-control cursor-pointer" name="Vertragsnummer">{{$ctrl.vertrag.vertragsnr}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.bezeichnung">
+      <label class="col-md-4 control-label" for="Vertragsbezeichnung">Vertragsbezeichnung</label>
+      <div class="col-md-8">
+        <p class="form-control cursor-pointer" name="Vertragsbezeichnung">{{$ctrl.vertrag.bezeichnung}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.idVertragspartner">
+      <label class="col-md-4 control-label" for="Vertragspartner">Vertragspartner</label>
+      <div class="col-md-8">
+         <p class="form-control cursor-pointer" name="Vertragsart">{{ ($ctrl.vertragspartnerOpts | filter:{id: $ctrl.vertrag.idVertragspartner}:true)[0].firmenname }}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Laufzeitende">Laufzeitende</label>
+      <div class="col-md-4">
+        <p class="input-group datepicker">
+          <span class="input-group-btn">
+            <button ng-disabled="$ctrl.unbegrenzteLaufzeit" type="button" class="btn btn-default" ng-click="$event.stopPropagation(); $ctrl.datepickerLaufzeitende=true"><span class="glyphicon glyphicon-calendar"></span></button>
+          </span>
+          <input ng-disabled="$ctrl.unbegrenzteLaufzeit" type="text" class="form-control" uib-datepicker-popup="dd.MM.yyyy" ng-model="$ctrl.vertrag.laufzeitende" ng-change="$ctrl.onlaufzeitendeChanged()" is-open="$ctrl.datepickerLaufzeitende" placeholder="Tag.Monat.Jahr" required>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <input class="control-label" type="checkbox" ng-model="$ctrl.unbegrenzteLaufzeit" ng-change="$ctrl.onUnbegrenzteLaufzeitChanged()" name="unbegrenzteLaufzeit">
+        <label class="control-label" for="unbegrenzteLaufzeit">unbegrenzte Laufzeit</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Kuendigungsfrist">K&uuml;ndigungsfrist</label>
+      <div class="col-md-4">
+        <input type="number" min="0" class="form-control" name="Kuendigungsfrist" placeholder="Monate" ng-model="$ctrl.vertrag.kuendigungsfrist" ng-change="$ctrl.onKuendigungsfristChanged()">
+      </div>
+      <div class="col-md-4" ng-if="$ctrl.vertrag.kuendigungsdatum">
+        <p>({{$ctrl.vertrag.kuendigungsdatum | date: 'dd.MM.yyyy'}})</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Mindestlaufzeit">Mindestlaufzeit</label>
+      <div class="col-md-8">
+        <input type="number" min="0" class="form-control" name="Mindestlaufzeit" placeholder="Monate" ng-model="$ctrl.vertrag.mindestlaufzeit">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.terminate()">Speichern</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

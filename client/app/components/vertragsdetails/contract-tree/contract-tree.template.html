@@ -1,0 +1,8 @@
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+    <a href ng-click="$ctrl.$location.path('/vertrag/'+item.id)" ng-if="item.id!=$ctrl.contractId">{{item.bezeichnung}}</a>
+    <strong ng-if="item.id==$ctrl.contractId">{{item.bezeichnung}}</strong>
+    <!--<div ng-include="'contract-tree.html'" onload="items=item.children"></div>-->
+    <contract-tree items="item.children" contract-id="$ctrl.contractId"></contract-tree>
+  </li>
+</ul>

@@ -1,0 +1,80 @@
+{
+  "name": "Kosten",
+  "plural": "Kosten",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "cm4it",
+    "table": "kosten"
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "required": false,
+      "generated": true
+    },
+    "idVertrag": {
+      "type": "Number",
+      "required": true
+    },
+    "idFaelligkeit": {
+      "type": "Number",
+      "required": false
+    },
+    "idWaehrung": {
+      "type": "Number",
+      "required": false
+    },
+    "kosten": {
+      "type": "Number",
+      "required": false
+    },
+    "datum": {
+      "type": "Date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vertrag": {
+      "type": "belongsTo",
+      "model": "Vertrag",
+      "foreignKey": "idVertrag"
+    },
+    "waehrung": {
+      "type": "belongsTo",
+      "model": "Waehrung",
+      "foreignKey": "idWaehrung"
+    },
+    "faelligkeit": {
+      "type": "belongsTo",
+      "model": "Faelligkeit",
+      "foreignKey": "idFaelligkeit"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "readonly",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

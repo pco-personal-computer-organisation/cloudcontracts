@@ -1,0 +1,42 @@
+{
+  "name": "Vertragsliste",
+  "plural": "Vertragsliste",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "cm4it",
+    "table": "vertragsliste"
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true
+    },
+    "idVertragspartner": "Number",
+    "idKategorie": "Number",
+    "vertragsnr": "String",
+    "bezeichnung": "String",
+    "status": "Number",
+    "laufzeitende": "Date",
+    "kuendigungsdatum": "Date",
+    "statusName": "String",
+    "firmenname": "String"
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ]
+}

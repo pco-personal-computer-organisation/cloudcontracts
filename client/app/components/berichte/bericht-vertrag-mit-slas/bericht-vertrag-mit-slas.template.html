@@ -1,0 +1,12 @@
+<h2 class="sub-header">Vertragsdaten mit SLAs</h2>
+<button class="btn btn-default" ng-click="$ctrl.export()">Export</button>
+<br><br>
+<table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="table table-condensed table-hover">
+  <tr ng-repeat="row in $data">
+    <td ng-repeat="col in $columns">{{row[col.field]}}</td>
+  </tr>
+  <tr ng-if="params.length==0">
+    <td colspan="4" class="text-center">Keine SLAs vorhanden</td>
+  </tr>
+</table>
+<span us-spinner spinner-on="$ctrl.showSpinner"></span>

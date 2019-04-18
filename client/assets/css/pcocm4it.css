@@ -1,0 +1,482 @@
+body
+{
+  margin-top: 90px;
+}
+
+.row
+{
+  margin-bottom: 20px;
+}
+
+.navbar-form
+{
+  padding: 0;
+}
+
+td > a:hover, td > a:visited, td > a:active, td > a, td > a:link
+{
+  color: #333;
+}
+
+.vertragsgruppen
+{
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+h2
+{
+  margin-top: 0;
+}
+
+h1
+{
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h4
+{
+  margin-top: 0;
+}
+
+/*** with sidebar ***/
+.container-sidebar
+{
+  margin-left: 203px;
+}
+
+.sidebar
+{
+  position: fixed;
+  top: 76px;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  padding: 10px;
+  z-index: 1000;
+  border-right: 1px solid #ccc;
+  background-color: #eee;
+  overflow-y: auto;
+}
+
+/*.sidebar > ul {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}*/
+/*** with sidebar ***/
+
+/*** signin ***/
+/*body.signin
+{
+  margin: 0;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.signin
+{
+  margin-top: 175px;
+}
+
+.form-signin
+{
+  max-width: 370px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox
+{
+  font-weight: normal;
+}
+
+.form-signin .form-control
+{
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus
+{
+  z-index: 2;
+}
+
+.form-signin input[type="email"]
+{
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"]
+{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+div.signin .panel-default {
+  background: none;
+  width: 375px;
+  margin: 0 auto;
+}
+
+div.signin .panel-default .panel-body
+{
+  background: rgba(255, 255, 255, 0.6)!important;
+}
+
+div.signin .panel-default .panel-heading
+{
+  background: rgba(255, 255, 255, 0.6)!important;
+}
+div.signin .panel-heading
+{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+div.signin .panel-body
+{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+div.signin .panel
+{
+  border-radius: 15px;
+}
+
+h4.signin
+{
+  margin-top: 10px;
+}*/
+/*** signin ***/
+
+hr
+{
+  border-color: #ccc;
+  margin: 5px 0;
+}
+
+.navbar-inverse .navbar-nav > li > a.abmelden
+{
+  color: #0f0;
+}
+
+/*** ui bootstrap ***/
+.nav, .pagination, .carousel, .panel-title a
+{
+  cursor: pointer;
+}
+/*** ui bootstrap ***/
+
+p.form-control
+{
+  border: none;
+  box-shadow: none;
+}
+
+.cursor-pointer
+{
+  cursor: pointer;
+}
+
+.fa-name
+{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+span.navbar-brand
+{
+  padding: 5px 15px;
+}
+
+.navbar-inverse span.navbar-brand:hover {
+  color: #9d9d9d;
+}
+
+.bold-and-right-aligned
+{
+  font-weight: bold;
+  text-align: right;
+}
+
+/*** datepicker ***/
+.datepicker > ul button.btn-default
+{
+  background-image: none;
+}
+/*** datepicker ***/
+
+.label-dashboard
+{
+  border-radius: 10px;
+  padding: 3px 7px;
+}
+
+.margin-after .form-group
+{
+  margin-right: 10px;
+}
+
+.edit-max-width
+{
+  max-width: 1024px;
+}
+
+/*** ngTable ***/
+.table > tbody > tr > td.td-indent
+{
+  padding-left: 20pt;
+}
+
+.table > tbody > tr > td.td-align-right
+{
+  text-align: right;
+}
+
+.table > tbody > tr > td
+{
+  border-top: 1px solid #ddd;
+}
+
+.table > tbody + tbody
+{
+  border-top: 1px solid #000;
+}
+
+.ng-table th
+{
+  text-align: left;
+}
+/*** ngTable ***/
+
+.progress-bar
+{
+  border-radius: 6px;
+}
+
+.shake-horizontal {
+  display: block;
+}
+
+.login-logo {
+  vertical-align: middle;
+  height: 35px;
+}
+
+.edit_hover_class {
+  word-wrap: break-word;
+}
+
+.edit_hover_class span.edit {
+  visibility:hidden;
+  display: inline;
+}
+.edit_hover_class:hover span.edit {
+  visibility:visible;
+}
+
+.edit-category {
+  height: 40px;
+}
+
+.required {
+  color: #a94442;
+}
+
+.veFaelligkeit {
+  min-width: 170px;
+}
+
+.veWaehrung {
+  border-left: 0px;
+  min-width: 75px;
+}
+
+.veAbZum {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.veKosten {
+  padding-right: 0px;
+}
+
+.veButton {
+  width: auto;
+  padding-left: 8px;
+}
+
+.veKostenMarginBottom {
+  margin-bottom: 0px;
+}
+
+.category-edit-delete {
+  position: absolute;
+  left: 95%;
+  bottom: -10px;
+  padding: 10px;
+}
+
+.category-action-button {
+  padding: 1px;
+  color: #000;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.cal-mark {
+  background: aqua;
+}
+
+.cal-mark button {
+  background: aqua;
+  /*background-image: linear-gradient(180deg,#fff 0,#e0e0e0)*/
+}
+
+/* fixes issue: csshake overrides 'active' from bootstrap */
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.progress-bar.active {
+     -moz-animation: progress-bar-stripes 2s linear infinite;
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+       -o-animation: progress-bar-stripes 2s linear infinite;
+          animation: progress-bar-stripes 2s linear infinite;
+}
+
+label.inline-form-margin::before {
+  margin-left: 0;
+}
+
+label.inline-form-margin {
+  margin-left: 6px;
+  margin-right: 3px;
+}
+
+.daterangepicker-inline {
+  display: inline-block;
+  width: auto;
+  min-width: 202px;
+}
+
+.daterangepicker-inline .ui-select-match .btn {
+  min-width: 202px
+}
+
+.cc-navbar {
+  z-index: 1030;
+  width: 100%;
+  margin-bottom: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 70px;
+  height: 6px;
+  background: #069ac5;
+  background: -moz-linear-gradient(left, #069ac5 0%, #7dc7dc 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #069ac5), color-stop(100%, #7dc7dc));
+  background: -webkit-linear-gradient(left, #069ac5 0%, #7dc7dc 100%);
+  background: -o-linear-gradient(left, #069ac5 0%, #7dc7dc 100%);
+  background: -ms-linear-gradient(left, #069ac5 0%, #7dc7dc 100%);
+  background: linear-gradient(to right, #069ac5 0%, #7dc7dc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#069ac5', endColorstr='#7dc7dc', GradientType=1 );
+}
+
+.navbar-fixed-top {
+  margin-bottom: 0;
+  min-height: 70px;
+  border: 0;
+  background-color: #fff;
+}
+
+.navbar-nav li a {
+  font-weight: bold;
+  font-size: 18px;
+  border: 0;
+  color: #b2b1b1;
+}
+
+.navbar-nav li a:hover {
+  color: #4f4c4c;
+}
+
+.navbar-nav .active a {
+  color: #4f4c4c;
+}
+
+.navbar-nav li .personal-menu {
+  padding: 10px 15px;
+  line-height: 50px;
+}
+
+.navbar-nav li a .badge {
+  margin-top: -3px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .navbar-nav li a.active {
+    border: 0;
+  }
+}
+
+.navbar-form .input-group {
+  margin-top: 11px;
+}
+
+.vertical-middle {
+  display: inline;
+  vertical-align: middle;
+}
+
+.container-flex {
+  display: flex;
+}
+
+.flex-item {
+  flex-grow: 1;
+}

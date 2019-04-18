@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "cm4it": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "cm4it",
+    "password": "madmax",
+    "name": "cm4it",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "storage",
+    "maxFileSize": "52428800"
+  }
+}

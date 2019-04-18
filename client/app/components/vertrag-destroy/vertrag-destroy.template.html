@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h3 class="modal-title">Vertrag {{$ctrl.vertrag.bezeichnung}}</h3>
+</div>
+<div class="modal-body">
+  <p>Wollen Sie den Vertrag &quot;{{$ctrl.vertrag.bezeichnung}}&quot; wirklich l&ouml;schen?</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.destroy()">L&ouml;schen</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

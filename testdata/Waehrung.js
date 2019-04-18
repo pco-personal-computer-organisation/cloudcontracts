@@ -1,0 +1,97 @@
+module.exports = [{
+  id: 3,
+  name: 'AUD',
+}, {
+  id: 4,
+  name: 'BGN',
+}, {
+  id: 5,
+  name: 'BRL',
+}, {
+  id: 6,
+  name: 'CAD',
+}, {
+  id: 7,
+  name: 'CHF',
+}, {
+  id: 8,
+  name: 'CNY',
+}, {
+  id: 9,
+  name: 'CZK',
+}, {
+  id: 10,
+  name: 'DKK',
+}, {
+  id: 1,
+  name: 'EUR',
+}, {
+  id: 11,
+  name: 'GBP',
+}, {
+  id: 12,
+  name: 'HKD',
+}, {
+  id: 13,
+  name: 'HRK',
+}, {
+  id: 14,
+  name: 'HUF',
+}, {
+  id: 15,
+  name: 'IDR',
+}, {
+  id: 16,
+  name: 'ILS',
+}, {
+  id: 17,
+  name: 'INR',
+}, {
+  id: 18,
+  name: 'JPY',
+}, {
+  id: 19,
+  name: 'KRW',
+}, {
+  id: 20,
+  name: 'MXN',
+}, {
+  id: 21,
+  name: 'MYR',
+}, {
+  id: 22,
+  name: 'NOK',
+}, {
+  id: 23,
+  name: 'NZD',
+}, {
+  id: 24,
+  name: 'PHP',
+}, {
+  id: 25,
+  name: 'PLN',
+}, {
+  id: 26,
+  name: 'RON',
+}, {
+  id: 27,
+  name: 'RUB',
+}, {
+  id: 28,
+  name: 'SEK',
+}, {
+  id: 29,
+  name: 'SGD',
+}, {
+  id: 30,
+  name: 'THB',
+}, {
+  id: 31,
+  name: 'TRY',
+}, {
+  id: 2,
+  name: 'USD',
+}, {
+  id: 32,
+  name: 'ZAR',
+}];

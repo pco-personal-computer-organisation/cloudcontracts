@@ -1,0 +1,34 @@
+{
+  "name": "Vertragspartnerliste",
+  "plural": "Vertragspartnerliste",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "mysql": {
+    "schema": "cm4it",
+    "table": "vertragspartnerliste"
+  },
+  "properties": {
+    "id": "Number",
+    "kundennr": "String",
+    "firmenname": "String",
+    "idVertrag": "Number",
+    "bezeichnung": "String",
+    "vertragsnr": "String",
+    "laufzeitende": "Date",
+    "kuendigungsfrist": "Number"
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ]
+}

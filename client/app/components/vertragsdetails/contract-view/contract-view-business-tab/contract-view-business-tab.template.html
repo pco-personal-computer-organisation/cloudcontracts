@@ -1,0 +1,49 @@
+<div class="panel-body">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="KostenZyklisch">Kosten</label>
+      <div class="col-md-9">
+        <div class="row veKostenMarginBottom" ng-repeat="kostenData in $ctrl.vertrag.kosten">
+          <div class="col-md-12">
+            <p class="form-control cursor-pointer veKostenMarginBottom" id="Kostenstelle" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{kostenData.kosten | currency:kostenData.waehrung.name}} {{kostenData.faelligkeit.name}} {{kostenData.idFaelligkeit===8? 'zum' : 'ab'}} {{kostenData.datum | date: 'dd.MM.yyyy'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.kostenstelle">
+      <label class="col-md-3 control-label" for="Kostenstelle">Kostenstelle</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Kostenstelle" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.kostenstelle}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.konto">
+      <label class="col-md-3 control-label" for="Konto">Konto</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Konto" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.konto}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.bestellnr">
+      <label class="col-md-3 control-label" for="Bestellnummer">Bestellnummer</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Bestellnummer" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.bestellnr}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.verantwortlicher">
+      <label class="col-md-3 control-label" for="Verantwortlicher">Verantwortlicher (KoSt)</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Verantwortlicher" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.verantwortlicher}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.organisationseinheit">
+      <label class="col-md-3 control-label" for="Organisationseinheit">Organisationseinheit</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Organisationseinheit" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.organisationseinheit}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="!$ctrl.vertrag.kosten && !$ctrl.vertrag.kostenstelle && !$ctrl.vertrag.konto && !$ctrl.vertrag.bestellnr && !$ctrl.vertrag.verantwortlicher && !$ctrl.vertrag.organisationseinheit && !$ctrl.vertrag.idKoordinator && !$ctrl.vertrag.vertragsstrafe">
+      <div class="col-md-12">
+         <p class="form-control cursor-pointer text-center" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">Keine kaufm&auml;nnischen Daten vorhanden</p>
+      </div>
+    </div>
+  </form>
+</div>

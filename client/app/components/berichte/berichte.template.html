@@ -1,0 +1,20 @@
+<div class="sidebar">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 1}"><a href ng-click="$ctrl.menuEntry = 1">Monatliche Kosten</a></li>
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 2}"><a href ng-click="$ctrl.menuEntry = 2">Vertragsassets</a></li>
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 3}"><a href ng-click="$ctrl.menuEntry = 3">Vertragsdaten mit Kosten</a></li>
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 4}"><a href ng-click="$ctrl.menuEntry = 4">Vertragsdaten mit Assets</a></li>
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 5}"><a href ng-click="$ctrl.menuEntry = 5">Vertragsdaten mit SLAs</a></li>
+    <li role="presentation" ng-class="{active: $ctrl.menuEntry === 6}"><a href ng-click="$ctrl.menuEntry = 6">Vertragsstammdaten</a></li>
+    <!--<li role="presentation"><a href>Vertragsvolumina</a></li>-->
+  </ul>
+</div>
+
+<div class="container-fluid container-sidebar">
+  <bericht-monatliche-kosten ng-if="$ctrl.menuEntry === 1"></bericht-monatliche-kosten>
+  <bericht-vertragsassets ng-if="$ctrl.menuEntry === 2"></bericht-vertragsassets>
+  <bericht-vertrag-mit-kosten ng-if="$ctrl.menuEntry === 3"></bericht-vertrag-mit-kosten>
+  <bericht-vertrag-mit-assets ng-if="$ctrl.menuEntry === 4"></bericht-vertrag-mit-assets>
+  <bericht-vertrag-mit-slas ng-if="$ctrl.menuEntry === 5"></bericht-vertrag-mit-slas>
+  <bericht-vertraege ng-if="$ctrl.menuEntry === 6"></bericht-vertraege>
+</div>

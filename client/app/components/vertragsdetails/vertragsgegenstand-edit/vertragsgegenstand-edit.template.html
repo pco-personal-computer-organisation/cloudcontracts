@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h3 class="modal-title">Asset {{::$ctrl.vertragsgegenstand.nummer}}</h3>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" name="gegenstandForm">
+    <div class="form-group">
+      <label class="col-lg-3 control-label" for="Nummer">Nr.</label>
+      <div class="col-lg-9">
+        <input type="text" class="form-control" name="Nummer" placeholder="Nummer" ng-model="$ctrl.vertragsgegenstand.nummer">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-3 control-label" for="Bezeichnung">Bezeichnung</label>
+      <div class="col-lg-9">
+        <input type="text" class="form-control" name="Bezeichnung" placeholder="Bezeichnung" ng-model="$ctrl.vertragsgegenstand.bezeichnung" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-3 control-label" for="Menge">Menge</label>
+      <div class="col-lg-9">
+        <input type="number" class="form-control" name="Menge" placeholder="Menge" ng-model="$ctrl.vertragsgegenstand.menge">
+      </div>
+    </div>
+    <div class="form-group" ng-repeat="obj in $ctrl.assetProperties">
+      <label class="col-md-3 control-label" for="{{obj.name}}">{{obj.name}}</label>
+      <!--<div class="col-md-3" ng-model="obj.name">
+        <input type="text" ng-model="obj.name" placeholder="Name" uib-typeahead="assetPropertyParam for assetPropertyParam in $ctrl.assetPropertyParams.names | filter:$viewValue | limitTo:8" class="form-control bold-and-right-aligned">
+      </div>-->
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="{{obj.name}}" ng-model="obj.wert">
+      </div>
+      <div class="col-md-1">
+        <p><a href ng-click="$ctrl.destroyAssetProperty(obj.name)" ng-if="user.role.name!='readonly'"><span class="glyphicon glyphicon-trash"></span></a></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3">
+        <input type="text" ng-model="$ctrl.newAssetProperty.name" placeholder="Name" uib-typeahead="assetPropertyParam for assetPropertyParam in $ctrl.assetPropertyParams.names | filter:$viewValue | limitTo:8" class="form-control bold-and-right-aligned" ng-keypress="$event.which==13? $ctrl.addAssetProperty() : null" name="assetName">
+      </div>
+      <div class="col-md-7">
+        <input type="text" class="form-control" name="NewValue" placeholder="Wert" ng-model="$ctrl.newAssetProperty.wert" ng-disabled="!$ctrl.newAssetProperty.name || $ctrl.newAssetProperty.name.length===0" ng-keypress="$event.which==13? $ctrl.addAssetProperty() : null">
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.addAssetProperty()" ng-disabled="!$ctrl.newAssetProperty.name || $ctrl.newAssetProperty.name.length===0 || !$ctrl.newAssetProperty.wert || $ctrl.newAssetProperty.wert.length===0"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" click-and-disable="$ctrl.save()">Speichern</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

@@ -1,0 +1,151 @@
+<div class="panel-body edit-max-width">
+  <form class="form-horizontal" name="vertragForm" unsaved-changes>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragsnummer">Vertragsnummer</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Vertragsnummer" placeholder="Vertragsnummer" ng-model="$ctrl.vertrag.vertragsnr">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragsbezeichnung">Vertragsbezeichnung</label>
+      <div show-errors class="col-md-9">
+        <input type="text" class="form-control" name="Vertragsbezeichnung" placeholder="Vertragsbezeichnung" value="Wartung Klimaanlage" ng-model="$ctrl.vertrag.bezeichnung" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragspartner">Vertragspartner</label>
+      <div class="col-md-8">
+        <ui-select ng-model="$ctrl.selectedVertragspartner" ng-change="$ctrl.vertrag.idVertragspartner = $ctrl.selectedVertragspartner.id" required name="Vertragspartner">
+          <ui-select-match>
+            <!--<span ng-bind="$select.selected.firmenname"></span>-->
+            {{$select.selected.firmenname}}
+          </ui-select-match>
+          <ui-select-choices repeat="item in ($ctrl.vertragspartnerOpts | filter: $select.search) track by item.id">
+            {{item.firmenname}}
+          </ui-select-choices>
+        </ui-select>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-default" ng-click="$ctrl.addVertragspartner($ctrl.vertrag.idVertragspartner)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon" ng-class="{'glyphicon-plus': !$ctrl.vertrag.idVertragspartner, 'glyphicon-pencil': $ctrl.vertrag.idVertragspartner}" aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Status">Status</label>
+      <div class="col-md-9">
+        <select class="form-control" name="Status" ng-model="$ctrl.vertrag.idStatus" ng-options="obj.id as obj.name for obj in $ctrl.statusOpts" required></select>
+      </div>
+    </div>
+    <div class="form-group">
+      &nbsp;
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Laufzeitbeginn">Laufzeitbeginn</label>
+      <div class="col-md-9">
+        <p class="input-group datepicker">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="$event.stopPropagation(); $ctrl.datepickerLaufzeitbeginn=!$ctrl.datepickerLaufzeitbeginn"><span class="glyphicon glyphicon-calendar"></span></button>
+          </span>
+          <input type="text" class="form-control" name="Laufzeitbeginn" uib-datepicker-popup="dd.MM.yyyy" ng-model="$ctrl.vertrag.laufzeitbeginn" is-open="$ctrl.datepickerLaufzeitbeginn" placeholder="Tag.Monat.Jahr">
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Laufzeitende">Laufzeitende</label>
+      <div class="col-md-9">
+        <p class="input-group datepicker">
+          <span class="input-group-btn">
+            <button ng-disabled="$ctrl.unbegrenzteLaufzeit" type="button" class="btn btn-default" ng-click="$event.stopPropagation(); $ctrl.datepickerLaufzeitende=true"><span class="glyphicon glyphicon-calendar"></span></button>
+          </span>
+          <input ng-disabled="$ctrl.unbegrenzteLaufzeit" type="text" class="form-control" name="Laufzeitende" uib-datepicker-popup="dd.MM.yyyy" ng-model="$ctrl.vertrag.laufzeitende" ng-change="$ctrl.onLaufzeitendeChange()" is-open="$ctrl.datepickerLaufzeitende" placeholder="Tag.Monat.Jahr" required>
+          <span class="input-group-addon">
+            <input class="control-label vertical-middle" type="checkbox" ng-model="$ctrl.unbegrenzteLaufzeit" ng-change="$ctrl.onUnbegrenzteLaufzeitChanged()" name="unbegrenzteLaufzeit">
+            <label class="vertical-middle" for="unbegrenzteLaufzeit">unbegrenzte Laufzeit</label>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kuendigungsfrist">K&uuml;ndigungsfrist</label>
+      <div class="col-md-9">
+        <p class="input-group datepicker">
+          <input type="number" min="0" class="form-control" name="Kuendigungsfrist" placeholder="Monate" ng-model="$ctrl.vertrag.kuendigungsfrist" ng-change="$ctrl.onKuendigungsfristChange()">
+          <span class="input-group-addon" ng-if="$ctrl.vertrag.kuendigungsdatum"><strong>{{$ctrl.kuendigungsdatum}}</strong></span>
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kuendigungsoption">K&uuml;ndigungsoption</label>
+      <div class="col-md-9">
+        <select class="form-control" name="Kuendigungsoption" ng-model="$ctrl.vertrag.idKuendigungsoption" ng-options="obj.id as obj.name for obj in $ctrl.kuendigungsoptionOpts" required></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Koordinator">Empf&auml;nger E-Mailbenachrichtigung</label>
+      <div class="col-md-9">
+        <select class="form-control" name="Koordinator" ng-model="$ctrl.vertrag.idKoordinator" ng-options="obj.id as obj.name for obj in $ctrl.koordinatorOpts"></select>
+      </div>
+    </div>
+    <div class="form-group">
+      &nbsp;
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kategorie">Vertragsgruppe</label>
+      <div class="col-md-9">
+        <select class="form-control" name="Kategorie" ng-model="$ctrl.vertrag.idKategorie" ng-options="obj.id as obj.name for obj in $ctrl.kategorien" required></select>
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="Vertragsart">Vertragsart</label>
+      <div class="col-md-9">
+        <select class="form-control" name="Vertragsart" ng-model="$ctrl.vertrag.art" ng-options="obj.id as obj.name for obj in $ctrl.vertragsartOpts"></select>
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="Bemerkung">Bemerkung</label>
+      <div class="col-md-9">
+        <textarea name="Bemerkung" class="form-control" rows="3" ng-model="$ctrl.vertrag.bemerkung"></textarea>
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="Rahmenvertragsnummer">Rahmenvertragsnummer</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Rahmenvertragsnummer" placeholder="Rahmenvertragsnummer" ng-model="$ctrl.vertrag.rahmenvertragsnr">
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="AblageortOriginal">Ablageort Original</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="AblageortOriginal" placeholder="Ablageort Original" ng-model="$ctrl.vertrag.ablageortoriginal">
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="Mindestlaufzeit">Mindestlaufzeit</label>
+      <div class="col-md-9">
+        <input type="number" min="0" class="form-control" name="Mindestlaufzeit" placeholder="Monate" ng-model="$ctrl.vertrag.mindestlaufzeit">
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="AutoVerlaengerung">Autom. Verlängerung</label>
+      <div class="col-md-9">
+        <select class="form-control" name="AutoVerlaengerung" ng-model="$ctrl.vertrag.autoverlaengerung" ng-options="obj.id as obj.name for obj in $ctrl.janeinOpts"></select>
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="LaufzeitVerlaengerung">Laufzeit Verlängerung</label>
+      <div class="col-md-9">
+        <input type="number" class="form-control" name="LaufzeitVerlaengerung" placeholder="Monate" ng-model="$ctrl.vertrag.laufzeitverlaengerung">
+      </div>
+    </div>
+    <div class="form-group" ng-if="vertragShowHiddenFields">
+      <label class="col-md-3 control-label" for="Vertragsstrafen">Vertragsstrafen</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Vertragsstrafen" placeholder="Vertragsstrafen" ng-model="$ctrl.vertrag.vertragsstrafe">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 center-block">
+        <button type="button" class="btn btn-default btn-block" ng-click="vertragShowHiddenFields=!vertragShowHiddenFields">{{vertragShowHiddenFields? 'Felder ausblenden' : 'Alle Felder anzeigen'}} <span class="glyphicon" ng-class="{'glyphicon-menu-up': vertragShowHiddenFields, 'glyphicon-menu-down': !vertragShowHiddenFields}" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </form>
+</div>

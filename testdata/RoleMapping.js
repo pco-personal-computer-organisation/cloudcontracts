@@ -1,0 +1,166 @@
+module.exports = [{
+  id: 1,
+  principalType: 'USER',
+  principalId: 5,
+  roleId: 3,
+}, {
+  id: 2,
+  principalType: 'USER',
+  principalId: 2,
+  roleId: 3,
+}, {
+  id: 3,
+  principalType: 'USER',
+  principalId: 4,
+  roleId: 1,
+}, {
+  id: 4,
+  principalType: 'USER',
+  principalId: 3,
+  roleId: 1,
+}, {
+  id: 9,
+  principalType: 'USER',
+  principalId: null,
+  roleId: 2,
+}, {
+  id: 10,
+  principalType: 'USER',
+  principalId: 18,
+  roleId: 2,
+}, {
+  id: 11,
+  principalType: 'USER',
+  principalId: 19,
+  roleId: 2,
+}, {
+  id: 12,
+  principalType: 'USER',
+  principalId: 20,
+  roleId: 2,
+}, {
+  id: 13,
+  principalType: 'USER',
+  principalId: 21,
+  roleId: 2,
+}, {
+  id: 14,
+  principalType: 'USER',
+  principalId: 25,
+  roleId: 2,
+}, {
+  id: 15,
+  principalType: 'USER',
+  principalId: 26,
+  roleId: 2,
+}, {
+  id: 16,
+  principalType: 'USER',
+  principalId: 27,
+  roleId: 2,
+}, {
+  id: 17,
+  principalType: 'USER',
+  principalId: 28,
+  roleId: 2,
+}, {
+  id: 18,
+  principalType: 'USER',
+  principalId: 29,
+  roleId: 2,
+}, {
+  id: 19,
+  principalType: 'USER',
+  principalId: 30,
+  roleId: 2,
+}, {
+  id: 20,
+  principalType: 'USER',
+  principalId: 31,
+  roleId: 2,
+}, {
+  id: 21,
+  principalType: 'USER',
+  principalId: 32,
+  roleId: 1,
+}, {
+  id: 22,
+  principalType: 'USER',
+  principalId: 33,
+  roleId: 1,
+}, {
+  id: 23,
+  principalType: 'USER',
+  principalId: 34,
+  roleId: 1,
+}, {
+  id: 24,
+  principalType: 'USER',
+  principalId: 35,
+  roleId: 2,
+}, {
+  id: 25,
+  principalType: 'USER',
+  principalId: 36,
+  roleId: 2,
+}, {
+  id: 26,
+  principalType: 'USER',
+  principalId: 37,
+  roleId: 1,
+}, {
+  id: 27,
+  principalType: 'USER',
+  principalId: 38,
+  roleId: 1,
+}, {
+  id: 28,
+  principalType: 'USER',
+  principalId: 39,
+  roleId: 3,
+}, {
+  id: 29,
+  principalType: 'USER',
+  principalId: 40,
+  roleId: 3,
+}, {
+  id: 30,
+  principalType: 'USER',
+  principalId: 41,
+  roleId: 3,
+}, {
+  id: 31,
+  principalType: 'USER',
+  principalId: 42,
+  roleId: 3,
+}, {
+  id: 32,
+  principalType: 'USER',
+  principalId: 43,
+  roleId: 3,
+}, {
+  id: 33,
+  principalType: 'USER',
+  principalId: 44,
+  roleId: 3,
+}, {
+  id: 34,
+  principalType: 'USER',
+  principalId: 45,
+  roleId: 3,
+}, {
+  id: 35,
+  principalType: 'USER',
+  principalId: 46,
+  roleId: 3,
+}, {
+  id: 36,
+  principalType: 'USER',
+  principalId: 47,
+  roleId: 3,
+}, {
+  id: 37,
+  principalType: 'USER',
+  principalId: 48,
+  roleId: 3,
+}];

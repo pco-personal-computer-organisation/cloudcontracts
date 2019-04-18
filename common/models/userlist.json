@@ -1,0 +1,51 @@
+{
+  "name": "Userlist",
+  "plural": "Userlist",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "cm4it",
+    "table": "userlist"
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true
+    },
+    "username": "String",
+    "email": "String",
+    "status": "String",
+    "created": "Date",
+    "lastUpdated": "Date",
+    "idKunde": "Number",
+    "benachrichtigungsfrist1": "Number",
+    "benachrichtigungsfrist2": "Number",
+    "benachrichtigungsfrist3": "Number",
+    "idStellvertreter": "Number",
+    "stellvertreterAktiv": "Number",
+    "vorname": "String",
+    "nachname": "String",
+    "benachrichtigung": "Boolean",
+    "roleId": "Number",
+    "roleName": "String",
+    "roleDescription": "String"
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ]
+}

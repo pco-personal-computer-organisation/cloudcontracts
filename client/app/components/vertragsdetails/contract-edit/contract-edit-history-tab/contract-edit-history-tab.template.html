@@ -1,0 +1,18 @@
+<div class="panel-body">
+  <button class="btn btn-default" ng-click="$ctrl.toggleDetail()"><span class="glyphicon" ng-class="{ 'glyphicon-resize-small': historieTableParams.settings().groupOptions.isExpanded, 'glyphicon-resize-full': !historieTableParams.settings().groupOptions.isExpanded }"></span> Details</button>
+  <br><br>
+  <div class="table-responsive">
+    <table ng-table="$ctrl.tableParams" class="table table-condensed table-hover" show-group="false">
+      <tr class="ng-table-group" ng-repeat-start="group in $groups">
+        <td><a href ng-click="group.$hideRows = !group.$hideRows"><span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span> <strong>{{group.data[0].datum | date: 'dd.MM.yyyy HH:mm'}}</strong></td>
+        <td><strong>{{group.data[0].username}}</strong></td>
+        <td><strong>{{group.data[0].changedmodel}}</strong></td>
+      </tr>
+      <tr ng-repeat="entry in group.data" ng-hide="group.$hideRows" ng-repeat-end>
+        <td class="td-indent" data-title="'Datum / Eigenschaft'">{{entry.field}} {{entry.action}}</td>
+        <td data-title="'Benutzer / Alter Wert'">{{moment(entry.oldvalue, moment.ISO_8601, true).isValid()? moment(entry.oldvalue).format('DD.MM.YYYY HH:mm') : entry.oldvalue}}</td>
+        <td data-title="'Typ / Neuer Wert'">{{moment(entry.newvalue, moment.ISO_8601, true).isValid()? moment(entry.newvalue).format('DD.MM.YYYY HH:mm') : entry.newvalue}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

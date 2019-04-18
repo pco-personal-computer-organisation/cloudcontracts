@@ -1,0 +1,130 @@
+{
+  "name": "Historie",
+  "plural": "Historie",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "cm4it",
+    "table": "historie"
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true,
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "idVertrag": {
+      "type": "Number",
+      "id": true,
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "idVertrag",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "datum": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "Datum",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "idUser": {
+      "type": "number",
+      "required": false,
+      "mysql": {
+        "columnName": "idUser",
+        "dataType": "integer",
+        "nullable": "N"
+      },
+      "_selectable": true
+    },
+    "changedmodel": {
+      "type": "String",
+      "required": false,
+      "mysql": {
+        "columnName": "ChangedModel",
+        "dataType": "varchar",
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "diff": {
+      "type": "String",
+      "required": false,
+      "mysql": {
+        "columnName": "diff",
+        "dataType": "text",
+        "nullable": "Y"
+      },
+      "_selectable": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vertrag": {
+      "type": "belongsTo",
+      "model": "Vertrag",
+      "foreignKey": "idVertrag"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "idUser"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "readonly",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

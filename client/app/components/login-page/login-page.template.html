@@ -1,0 +1,24 @@
+<div class="login-body">
+  <div class="container-fluid login-container">
+    <div class="panel panel-default login-panel" ng-class="{'shake-constant shake-horizontal': $ctrl.shake}">
+    <div class="panel-body">
+      <img class="center-block" src="login-logo.jpg">
+      <br>
+      <form name="$ctrl.loginForm">
+        <div class="form-group" ng-class="{'has-error': $ctrl.wrongcreds}">
+          <input name="inputEmail" class="form-control input-lg" placeholder="E-Mail-Adresse" autofocus ng-model="$ctrl.credentials.email" ng-change="$ctrl.reset()" required type="text">
+        </div>
+        <div class="form-group" ng-class="{'has-error': $ctrl.wrongcreds}">
+          <input type="password" name="inputPassword" class="form-control input-lg" placeholder="Kennwort" ng-model="$ctrl.credentials.password" ng-keypress="$event.which==13? $ctrl.login() : null" ng-change="$ctrl.reset()" required>
+        </div>
+      </form>
+      <button class="btn btn-default btn-login btn-lg" click-and-disable="$ctrl.login()">Anmelden</button>
+    </div>
+    <div class="panel-footer container-flex">
+      <p class="flex-item login-footer-text"><a href="https://www.cloudcontracts.de">Produktseite</a></p>
+      <p class="flex-item login-footer-text"><a href ng-click="$ctrl.datenschutzErklaerung()">Datenschutzerkl&auml;rung</a></p>
+      <p class="flex-item login-footer-text"><a href="https://www.cloudcontracts.de/impressum.html">Impressum</a></p>
+    </div>
+    </div>
+  </div>
+</div>

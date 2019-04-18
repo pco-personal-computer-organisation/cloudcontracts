@@ -1,0 +1,48 @@
+<h2 class="sub-header">Auswertung der monatlichen Kosten</h2>
+<button class="btn btn-default" ng-click="$ctrl.export()">Export</button>
+
+<br><br>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="daterange" class="inline-form-margin">Von/Bis</label>
+    <input date-range-picker class="form-control date-picker" type="text" name="daterange" ng-model="$ctrl.dateRange" ng-change="$ctrl.dynTableParams.reload()" options="$ctrl.rangepickerOptions">
+  </div>
+  <div class="form-group">
+    <label for="Status" class="inline-form-margin">Status</label>
+    <select class="form-control" name="Status" ng-model="$ctrl.status" ng-change="$ctrl.dynTableParams.reload()" ng-options="obj.id as obj.name for obj in $ctrl.statusOpts">
+      <option label=" "></option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Kategorie" class="inline-form-margin">Kategorie</label>
+    <select class="form-control" name="Kategorie" ng-model="$ctrl.idKategorie" ng-change="$ctrl.dynTableParams.reload()" ng-options="obj.id as obj.name for obj in $ctrl.kategorien">
+      <option label=" "></option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Vertragspartner" class="inline-form-margin" style="vertical-align: 10px;">Vertragspartner</label>
+    <ui-select ng-model="$ctrl.selectedVertragspartner" ng-change="$ctrl.dynTableParams.reload()" name="Vertragspartner" class="daterangepicker-inline">
+      <ui-select-match>{{$select.selected.firmenname}}</ui-select-match>
+      <ui-select-choices repeat="item in ($ctrl.vertragspartnerOpts | filter: $select.search) track by item.id">{{item.firmenname}}</ui-select-choices>
+    </ui-select>
+  </div>
+  <div class="form-group">
+    <label for="Vertragsart" class="inline-form-margin">Vertragsart</label>
+    <select class="form-control" name="Vertragsart" ng-model="$ctrl.art" ng-change="$ctrl.dynTableParams.reload()" ng-options="obj.id as obj.name for obj in $ctrl.vertragsartOpts">
+      <option label=" "></option>
+    </select>
+  </div>
+</form>
+
+<br>
+
+<table ng-table-dynamic="$ctrl.dynTableParams with $ctrl.cols" class="table table-condensed table-hover">
+  <tr ng-repeat="row in $data">
+    <td ng-repeat="col in $columns">{{row[col.field]}}</td>
+  </tr>
+</table>
+<p class="disabled text-center">Bitte beachten Sie, dass es aufgrund von W&auml;hrungsumrechungen und Rundungsfehlern zu geringf&uuml;gigen Abweichungen der Werte kommen kann.<br>
+Zur W&auml;hrungsumrechnung werden von der EZB ver&ouml;ffentlichte aktuelle und historische Wechselkurse verwendet. Diese werden über den API-Service <a href="http://fixer.io/">fixer.io</a> bezogen.</p>
+
+<span us-spinner spinner-on="$ctrl.showSpinner"></span>

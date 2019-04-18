@@ -1,0 +1,13 @@
+<div class="panel-body">
+  <button type="button" class="btn btn-default" ng-click="$ctrl.edit()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neues Vertragsasset</button>
+  <br><br>
+  <table ng-table="$ctrl.tableParams" class="table table-condensed table-hover" show-group="false">
+    <tr ng-repeat="row in $data">
+      <td sortable="'nummer'" data-title="'Nr.'" filter="{nummer: 'text'}">{{row.nummer}}</td>
+      <td sortable="'bezeichnung'" data-title="'Bezeichnung'" filter="{bezeichnung: 'text'}">{{row.bezeichnung}}</td>
+      <td sortable="'menge'" data-title="'Menge'" filter="{menge: 'number'}">{{row.menge}}</td>
+      <td data-title="' '"><a href ng-click="$ctrl.edit(row.id)" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-pencil"></span></a> <a href ng-click="$ctrl.destroyGegenstand(row.id)" ng-if="$ctrl.user.role.name=='admin'"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+    <tr ng-if="$data.length===0"><td class="text-center" colspan="3">Keine Vertragsassets vorhanden</td></tr>
+  </table>
+</div>

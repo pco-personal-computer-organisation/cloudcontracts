@@ -1,0 +1,90 @@
+<div class="panel-body edit-max-width">
+  <form class="form-horizontal" name="kaufmForm" unsaved-changes>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="KostenZyklisch">Kosten</label>
+      <div class="col-md-9">
+        <div class="row veKostenMarginBottom" ng-repeat="kostenData in $ctrl.vertrag.kosten">
+          <div class="col-md-4 veKosten">
+            <div class="input-group">
+              <input type="number" class="form-control" name="Kosten" placeholder="Kosten" ng-model="kostenData.kosten" step="0.01">
+              <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+              <select class="form-control veWaehrung" name="Waehrung" ng-model="kostenData.idWaehrung" ng-options="obj.id as obj.name for obj in $ctrl.waehrungOpts"></select>
+            </div>
+          </div>
+          <div class="col-md-7 veKosten">
+            <p class="input-group datepicker">
+              <select class="form-control veFaelligkeit" name="Faelligkeit" ng-model="kostenData.idFaelligkeit" ng-options="obj.id as obj.name for obj in $ctrl.faelligkeitOpts"></select>
+              <span class="input-group-addon veAbZum">{{ kostenData.idFaelligkeit === 9 ? 'zum' : 'ab' }}</span>
+              <input type="text" class="form-control" uib-datepicker-popup="dd.MM.yyyy" ng-model="kostenData.datum" is-open="kostenData.datepicker" placeholder="Tag.Monat.Jahr">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="$event.stopPropagation(); kostenData.datepicker=!kostenData.datepicker"><span class="glyphicon glyphicon-calendar"></span></button>
+              </span>
+            </p>
+          </div>
+          <div class="col-md-1 veButton">
+            <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.deleteKosten(kostenData)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+        <div class="row veKostenMarginBottom">
+          <div class="col-md-4 veKosten">
+            <div class="input-group">
+              <input type="number" class="form-control" name="Kosten" placeholder="Kosten" ng-model="$ctrl.kosten.kosten" step="0.01">
+              <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+              <select class="form-control veWaehrung" name="Waehrung" ng-model="$ctrl.kosten.idWaehrung" ng-options="obj.id as obj.name for obj in $ctrl.waehrungOpts" ng-init="$ctrl.kosten.idWaehrung = 1"></select>
+            </div>
+          </div>
+          <div class="col-md-7 veKosten">
+            <p class="input-group datepicker">
+              <select class="form-control veFaelligkeit" name="Faelligkeit" ng-model="$ctrl.kosten.idFaelligkeit" ng-options="obj.id as obj.name for obj in $ctrl.faelligkeitOpts" ng-init="$ctrl.kosten.idFaelligkeit = 9"></select>
+              <span class="input-group-addon veAbZum">{{ $ctrl.kosten.idFaelligkeit === 9 ? 'zum' : 'ab' }}</span>
+              <input type="text" class="form-control" uib-datepicker-popup="dd.MM.yyyy" ng-model="$ctrl.kosten.datum" is-open="$ctrl.kosten.datepicker" placeholder="Tag.Monat.Jahr">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="$event.stopPropagation(); $ctrl.kosten.datepicker=!$ctrl.kosten.datepicker"><span class="glyphicon glyphicon-calendar"></span></button>
+              </span>
+            </p>
+          </div>
+          <div class="col-md-1 veButton">
+            <button type="button" class="btn btn-default pull-right" ng-click="$ctrl.addKosten()" ng-disabled="$ctrl.kosten.kosten<=0 || !$ctrl.kosten.kosten || !$ctrl.kosten.datum"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-if="kaufmShowHiddenFields">
+      <label class="col-md-3 control-label" for="Bestellnummer">Bestellnummer</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Bestellnummer" placeholder="Bestellnummer" ng-model="$ctrl.vertrag.bestellnr">
+      </div>
+    </div>
+    <div class="form-group" ng-if="kaufmShowHiddenFields">
+      <label class="col-md-3 control-label" for="Kostenstelle">Kostenstelle</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Kostenstelle" placeholder="Kostenstelle" ng-model="$ctrl.vertrag.kostenstelle" uib-typeahead="kostenstelleParams for kostenstelleParams in $ctrl.kostenstelleParams | filter:$viewValue | limitTo:8">
+      </div>
+    </div>
+    <div class="form-group" ng-if="kaufmShowHiddenFields">
+      <label class="col-md-3 control-label" for="Konto">Konto</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Konto" placeholder="Konto" ng-model="$ctrl.vertrag.konto">
+      </div>
+    </div>
+    <div class="form-group" ng-if="kaufmShowHiddenFields">
+      <label class="col-md-3 control-label" for="Verantwortlicher">Verantwortlicher (KoSt)</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Verantwortlicher" placeholder="Verantwortlicher" ng-model="$ctrl.vertrag.verantwortlicher">
+      </div>
+    </div>
+    <div class="form-group" ng-if="kaufmShowHiddenFields">
+      <label class="col-md-3 control-label" for="Organisationseinheit">Organisationseinheit</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Organisationseinheit" placeholder="Organisationseinheit" ng-model="$ctrl.vertrag.organisationseinheit">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 center-block">
+        <button type="button" class="btn btn-default btn-block" ng-click="kaufmShowHiddenFields=!kaufmShowHiddenFields">{{kaufmShowHiddenFields? 'Felder ausblenden' : 'Alle Felder anzeigen'}} <span class="glyphicon" ng-class="{'glyphicon-menu-up': kaufmShowHiddenFields, 'glyphicon-menu-down': !kaufmShowHiddenFields}" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </ul>
+</div>

@@ -1,0 +1,44 @@
+<category-sidebar></category-sidebar>
+
+<div class="container-fluid container-sidebar">
+  <h2>{{$ctrl.vertrag.bezeichnung}}</h2>
+  <h4><small>Erstellt von {{$ctrl.vertrag.angelegtvon}} am {{$ctrl.vertrag.anlagedatum | date: 'dd.MM.yyyy'}} (pcoCM-ID: {{$ctrl.user.idKunde}}-{{$ctrl.vertrag.id}})<span ng-if="$ctrl.user.role.name=='admin'"> | <a ng-click="$ctrl.destroyContract($ctrl.vertrag)" href>Vertrag l&ouml;schen</a></span></small></h4>
+  <span ng-if="$ctrl.user.role.name!='readonly'"><button type="button" class="btn btn-default" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">Bearbeiten</button>
+  <p>&nbsp;</p></span>
+</div>
+
+<div class="container-fluid container-sidebar">
+
+  <uib-tabset>
+
+    <uib-tab heading="Vertrag">
+      <contract-view-main-tab vertrag="$ctrl.vertrag"></contract-view-main-tab>
+    </uib-tab>
+
+    <uib-tab heading="SLA / Zus&auml;tze">
+      <contract-view-sla-tab vertrag="$ctrl.vertrag"></contract-view-sla-tab>
+    </uib-tab>
+
+    <uib-tab heading="Assets / Ger&auml;te">
+      <contract-view-asset-tab vertrag="$ctrl.vertrag"></contract-view-asset-tab>
+    </uib-tab>
+
+    <uib-tab heading="Kaufm&auml;nnische Daten">
+      <contract-view-business-tab vertrag="$ctrl.vertrag"></contract-view-business-tab>
+    </uib-tab>
+
+    <uib-tab heading="Dokumente">
+      <contract-view-document-tab vertrag="$ctrl.vertrag" type="1"></contract-view-document-tab>
+    </uib-tab>
+
+    <uib-tab heading="Historie">
+      <contract-view-history-tab vertrag="$ctrl.vertrag"></contract-view-history-tab>
+    </uib-tab>
+
+    <uib-tab heading="Hierarchie">
+      <contract-view-hierarchy-tab vertrag="$ctrl.vertrag"></contract-view-hierarchy-tab>
+    </uib-tab>
+
+  </uib-tabset>
+
+</div>

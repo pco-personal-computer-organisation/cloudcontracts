@@ -1,0 +1,16 @@
+<h2 class="sub-header">Auswertung nach Vertragsassets</h2>
+<button class="btn btn-default" ng-click="$ctrl.export()">Export</button>
+<br><br>
+<table ng-table="$ctrl.tableParams" class="table table-condensed table-hover" show-group="false">
+  <tr class="ng-table-group" ng-repeat-start="group in $groups">
+    <td><a href ng-click="group.$hideRows = !group.$hideRows"><span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span> <strong>{{ group.value }}</strong></a></td>
+    <td class="td-align-right"><strong>{{$ctrl.calcSum(group.data)}}</strong></td>
+  </tr>
+  <tr ng-hide="group.$hideRows" ng-repeat="entry in group.data" ng-repeat-end>
+    <td sortable="'Vertrag'" data-title="'Vertragsassets'" class="td-indent"><a href ng-click="$ctrl.$location.path('/vertrag/'+entry.idVertrag)">{{entry.Vertrag}}</a></td>
+    <td sortable="'Summe'" data-title="'Menge'" class="td-align-right">{{entry.Summe}}</td>
+  </tr>
+  <tr ng-if="params.length==0">
+    <td colspan="4" class="text-center">Keine Vertragsassets vorhanden</td>
+  </tr>
+</table>

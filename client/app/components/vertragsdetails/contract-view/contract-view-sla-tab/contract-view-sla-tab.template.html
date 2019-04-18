@@ -1,0 +1,15 @@
+<div class="panel-body">
+  <form class="form-horizontal">
+    <div class="form-group" ng-repeat="obj in $ctrl.vertrag.slas">
+      <label class="col-md-3 control-label" for="{{obj.name}}">{{obj.name}}</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="{{obj.name}}" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{obj.wert}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.slas.length==0">
+      <div class="col-md-12">
+         <p class="form-control cursor-pointer text-center" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">Keine SLAs vorhanden</p>
+      </div>
+    </div>
+  </form>
+</div>

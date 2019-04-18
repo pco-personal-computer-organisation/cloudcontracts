@@ -1,0 +1,40 @@
+module.exports = [{
+  id: 1,
+  name: 'Dienstvertrag',
+}, {
+  id: 7,
+  name: 'Gelddarlehensvertrag',
+}, {
+  id: 11,
+  name: 'Kaufvertrag',
+}, {
+  id: 10,
+  name: 'Kontovertrag',
+}, {
+  id: 12,
+  name: 'Leasingvertrag',
+}, {
+  id: 5,
+  name: 'Leihvertrag',
+}, {
+  id: 3,
+  name: 'Mietvertrag',
+}, {
+  id: 6,
+  name: 'Pachtvertrag',
+}, {
+  id: 8,
+  name: 'Sachdarlehensvertrag',
+}, {
+  id: 4,
+  name: 'Schenkungsvertrag',
+}, {
+  id: 9,
+  name: 'Versicherungsvertrag',
+}, {
+  id: 13,
+  name: 'Wartungsvertrag',
+}, {
+  id: 2,
+  name: 'Werkvertrag',
+}];

@@ -1,0 +1,13 @@
+{
+  "name": "ImportExport",
+  "plural": "ImportExport",
+  "base": "Model",
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ]
+}

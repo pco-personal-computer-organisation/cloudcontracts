@@ -1,0 +1,21 @@
+<div class="panel-body">
+  <form class="form-horizontal" name="hierarchieForm" unsaved-changes>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Vertragszugeh&ouml;rigkeit &auml;ndern</label>
+      <div class="col-md-9">
+        <ui-select ng-model="$ctrl.selectedItem">
+          <ui-select-match>
+            <span ng-bind="$select.selected.bezeichnung"></span>
+          </ui-select-match>
+          <ui-select-choices repeat="item in ($ctrl.vertraegeOpts | filter: $select.search) track by item.id">
+            <span ng-bind="item.bezeichnung"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+    </div>
+  </form>
+  <br>
+  <h4>Aktuelle Vertragshierarchie</h4>
+  <!--<div ng-include="'contract-tree.html'" onload="items=$ctrl.contractTree"></div>-->
+  <contract-tree items="$ctrl.contractTree" contract-id="$ctrl.vertrag.id"></contract-tree>
+</div>

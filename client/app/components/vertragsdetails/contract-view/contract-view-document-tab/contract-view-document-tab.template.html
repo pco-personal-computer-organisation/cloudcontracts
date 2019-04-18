@@ -1,0 +1,15 @@
+<p>&nbsp;</p>
+<button type="button" class="btn btn-default" ng-click="$ctrl.upload()">Datei hochladen</button>
+<div class="panel-body">
+  <div class="table-responsive">
+    <table ng-table="$ctrl.tableParams" class="table table-condensed table-hover" show-group="false">
+      <tr ng-repeat="document in $data">
+        <td data-title="'Dateiname'"><a ng-click="$ctrl.downloadDocument(document)" title="Download" href>{{document.dateiname}} <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span></a></td>
+        <td data-title="'Datum'">{{document.datum | date: 'dd.MM.yyyy HH:mm'}}</td>
+        <td data-title="'Benutzer'">{{document.user.username}}</td>
+        <td data-title="' '"><a href ng-click="$ctrl.documentHistorie(document)" title="Historie"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a> <a href ng-click="$ctrl.removeDocument(document)" title="L&ouml;schen" ng-if="$ctrl.user.role.name=='admin'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+      </tr>
+      <tr ng-if="$ctrl.dokumente.length==0"><td class="text-center" colspan="3">Keine Dokumente vorhanden</td></tr>
+    </table>
+  </div>
+</div>

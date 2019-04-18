@@ -1,0 +1,45 @@
+<category-sidebar></category-sidebar>
+
+<div class="container-fluid container-sidebar">
+  <h2>{{ $ctrl.vertrag.hasOwnProperty('id')? $ctrl.vertrag.bezeichnung : 'Neuer Vertrag' }}</h2>
+  <h4 ng-if="$ctrl.vertrag.hasOwnProperty('id')"><small>Erstellt von {{$ctrl.vertrag.angelegtvon}} am {{$ctrl.vertrag.anlagedatum | date: 'dd.MM.yyyy'}} (pcoCM-ID: {{$ctrl.user.idKunde}}-{{$ctrl.vertrag.id}}) | <a ng-click="$ctrl.destroyContract(vertrag)" href ng-if="$ctrl.user.role.name=='admin'">Vertrag l&ouml;schen</a></small></h4>
+  <button type="button" class="btn btn-primary" type="submit" ng-click="$ctrl.save()" ng-disabled="$ctrl.saving">Speichern</button>
+  <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Abbrechen</button>
+  <p>&nbsp;</p>
+</div>
+
+<div class="container-fluid container-sidebar">
+
+  <uib-tabset>
+
+    <uib-tab heading="Vertrag">
+      <contract-edit-main-tab vertrag="$ctrl.vertrag"></contract-edit-main-tab>
+    </uib-tab>
+
+    <uib-tab heading="SLA / Zus&auml;tze">
+      <contract-edit-sla-tab vertrag="$ctrl.vertrag" del-s-l-a="$ctrl.delSLA"></contract-edit-sla-tab>
+    </uib-tab>
+
+    <uib-tab heading="Assets / Ger&auml;te" disable="!$ctrl.vertrag || !$ctrl.vertrag.id">
+      <contract-edit-asset-tab vertrag="$ctrl.vertrag"></contract-edit-asset-tab>
+    </uib-tab>
+
+    <uib-tab heading="Kaufm&auml;nnische Daten">
+      <contract-edit-business-tab vertrag="$ctrl.vertrag" del-kosten="$ctrl.delKosten" kosten="$ctrl.kosten"></contract-edit-business-tab>
+    </uib-tab>
+
+    <uib-tab heading="Dokumente" disable="!$ctrl.vertrag || !$ctrl.vertrag.id">
+      <contract-edit-document-tab vertrag="$ctrl.vertrag" type="1"></contract-edit-document-tab>
+    </uib-tab>
+
+    <uib-tab heading="Historie" disable="!$ctrl.vertrag || !$ctrl.vertrag.id">
+      <contract-edit-history-tab vertrag="$ctrl.vertrag"></contract-edit-history-tab>
+    </uib-tab>
+
+    <uib-tab heading="Hierarchie" disable="!$ctrl.vertrag || !$ctrl.vertrag.id">
+      <contract-edit-hierarchy-tab vertrag="$ctrl.vertrag" selected-item="$ctrl.selectedItem"></contract-edit-hierarchy-tab>
+    </uib-tab>
+
+  </uib-tabset>
+
+</div>

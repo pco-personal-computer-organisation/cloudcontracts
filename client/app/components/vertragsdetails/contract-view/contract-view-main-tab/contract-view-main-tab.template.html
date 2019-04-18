@@ -1,0 +1,112 @@
+<div class="panel-body">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragsnummer">Vertragsnummer</label>
+      <div class="col-md-9">
+        <p class="form-control cursor-pointer" id="Vertragsnummer" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.vertragsnr}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragsbezeichnung">Vertragsbezeichnung</label>
+      <div class="col-md-9">
+        <p class="form-control cursor-pointer" id="Vertragsbezeichnung" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.bezeichnung}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Vertragspartner">Vertragspartner</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Vertragsart" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{($ctrl.vertragspartnerOpts | filter:{id: $ctrl.vertrag.idVertragspartner}:true)[0].firmenname}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Status">Status</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Status" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{ ($ctrl.statusOpts | filter:{id: $ctrl.vertrag.idStatus}:true)[0].name }}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Laufzeitbeginn">Laufzeitbeginn</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Laufzeitbeginn" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.laufzeitbeginn | date: 'dd.MM.yyyy'}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Laufzeitende">Laufzeitende</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Laufzeitende" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.laufzeitende | date: 'dd.MM.yyyy'}}{{ $ctrl.vertrag.laufzeitende ? '' : 'unbefristet'}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kuendigungsfrist">K&uuml;ndigungsfrist</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Kuendigungsfrist" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.kuendigungsfrist === 0 ? 'sofort' : $ctrl.vertrag.kuendigungsfrist}} {{$ctrl.vertrag.kuendigungsfrist ? 'Monat' + ($ctrl.vertrag.kuendigungsfrist === 1 ? '' : 'e') : ''}} <span ng-if="$ctrl.vertrag.kuendigungsdatum">({{$ctrl.vertrag.kuendigungsdatum | date: 'dd.MM.yyyy'}})</span></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kuendigungsoption">K&uuml;ndigungsoption</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Kuendigungsoption" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{ ($ctrl.kuendigungsoptionOpts | filter:{id: $ctrl.vertrag.idKuendigungsoption}:true)[0].name }}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Koordinator">Empf&auml;nger E-Mailbenachrichtigung</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Koordinator" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.koordinator.name}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="Kategorie">Vertragsgruppe</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Kategorie" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{ ($ctrl.kategorien | filter:{id: $ctrl.vertrag.idKategorie}:true)[0].name }}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.art">
+      <label class="col-md-3 control-label" for="Vertragsart">Vertragsart</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Vertragsart" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{ ($ctrl.vertragsartOpts | filter:{id: $ctrl.vertrag.art}:true)[0].name }}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.bemerkung">
+      <label class="col-md-3 control-label" for="Bemerkung">Bemerkung</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Bemerkung" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.bemerkung}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.rahmenvertragsnr">
+      <label class="col-md-3 control-label" for="Rahmenvertragsnummer">Rahmenvertragsnummer</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Rahmenvertragsnummer" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.rahmenvertragsnr}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.ablageortoriginal">
+      <label class="col-md-3 control-label" for="AblageortOriginal">Ablageort Original</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="AblageortOriginal" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.ablageortoriginal}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.mindestlaufzeit">
+      <label class="col-md-3 control-label" for="Mindestlaufzeit">Mindestlaufzeit</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Mindestlaufzeit" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.mindestlaufzeit}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.autoverlaengerung">
+      <label class="col-md-3 control-label" for="AutoVerlaengerung">Autom. Verlängerung</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="AutoVerlaengerung" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{ ($ctrl.janeinOpts | filter:{id: $ctrl.vertrag.autoverlaengerung}:true)[0].name }}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.laufzeitverlaengerung">
+      <label class="col-md-3 control-label" for="LaufzeitVerlaengerung">Laufzeit Verlängerung</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="LaufzeitVerlaengerung" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.laufzeitverlaengerung}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.vertrag.vertragsstrafe">
+      <label class="col-md-3 control-label" for="Vertragsstrafen">Vertragsstrafen</label>
+      <div class="col-md-9">
+         <p class="form-control cursor-pointer" id="Vertragsstrafen" ng-click="$ctrl.$location.path('/vertrag/'+$ctrl.vertrag.id+'/edit/')">{{$ctrl.vertrag.vertragsstrafe}}</p>
+      </div>
+    </div>
+  </form>
+</div>

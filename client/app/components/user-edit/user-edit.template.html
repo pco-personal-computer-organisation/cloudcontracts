@@ -1,0 +1,103 @@
+<div class="modal-header">
+  <h3 class="modal-title">Benutzereinstellungen</h3>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" name="userEditForm">
+    <div class="panel panel-default">
+      <div class="panel-heading">Pers&ouml;nliches</div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Name">Name</label>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="Name" placeholder="Vorname" ng-model="$ctrl.user.vorname" ng-change="$ctrl.onVornameChange()" required>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="Name" placeholder="Nachname" ng-model="$ctrl.user.nachname" ng-change="$ctrl.onNachnameChange()" required>
+          </div>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.currentUser.id">
+          <label class="col-lg-4 control-label" for="username">Kurzname</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" name="username" placeholder="Kurzname" ng-model="$ctrl.user.username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="EMail">E-Mail</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" name="EMail" placeholder="E-Mail" ng-model="$ctrl.user.email" ng-change="$ctrl.onEmailChange()" required>
+          </div>
+        </div>
+        <div class="form-group" ng-show="$ctrl.user.id">
+          <label class="col-lg-4 control-label" for="newpassword">Kennwort &auml;ndern</label>
+          <div class="col-lg-8">
+            <a href class="btn btn-default" ng-click="$ctrl.changePassword()"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Kennwort &auml;ndern</a>
+          </div>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.user.id">
+          <label class="col-lg-4 control-label" for="newpassword">Kennwort setzen</label>
+          <div class="col-lg-8">
+            <input type="password" class="form-control" name="newpassword" placeholder="Kennwort" ng-model="$ctrl.user.password">
+          </div>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.user.id">
+          <label class="col-lg-4 control-label" for="repeatpassword">Kennwort wiederholen</label>
+          <div class="col-lg-8">
+            <input type="password" class="form-control" name="repeatpassword" placeholder="Kennwort wiederholen" ng-model="$ctrl.user.repeatpassword">
+          </div>
+        </div>
+        <div class="form-group"  style="margin-bottom: 0px;">
+          <label class="col-md-4 control-label" for="Role">Benutzerrolle</label>
+          <div class="col-md-8">
+            <p class="form-control" ng-hide="$ctrl.currentUser.role.name==='admin' && $ctrl.user.id!==$ctrl.currentUser.id" name="Role" style="margin-bottom: 0px;">{{$ctrl.user.role.description}}</p>
+            <select class="form-control" ng-show="$ctrl.currentUser.role.name==='admin' && $ctrl.user.id!==$ctrl.currentUser.id" name="Role" ng-model="$ctrl.user.role.id" ng-options="obj.id as obj.description for obj in $ctrl.roles"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><a href ng-click="isCollapsed = !isCollapsed">E-Mail-Benachrichtigungen <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></span></a></div>
+      <div class="panel-body" uib-collapse="isCollapsed">
+        <div class="form-group">
+          <label class="col-md-6 control-label" for="Notification">E-Mail-Benachrichtigungen</label>
+          <div class="col-md-6">
+            <input class="control-label" type="checkbox" ng-model="$ctrl.user.benachrichtigung" name="Notification">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-6 control-label" for="Benachrichtigungsfrist1">Frist für erste Benachrichtigung</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist1" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-6 control-label" for="Benachrichtigungsfrist2">Frist für zweite Benachrichtigung</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist2" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-6 control-label" for="Benachrichtigungsfrist3">Frist für dritte Benachrichtigung</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist3" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist3">
+          </div>
+        </div>
+        <!--<div class="form-group">
+          <label class="col-md-6 control-label" for="Benachrichtigungsfrist1">Fristen für Benachrichtigungen (Tage)</label>
+          <div class="col-md-2">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist1" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist1">
+          </div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist2" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist2">
+          </div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" name="Benachrichtigungsfrist3" placeholder="Benachrichtigungsfrist" ng-model="$ctrl.user.benachrichtigungsfrist3">
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" click-and-disable="$ctrl.save()">Speichern</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

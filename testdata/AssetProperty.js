@@ -1,0 +1,206 @@
+module.exports = [{
+  id: 1,
+  idVertragsgegenstand: 19,
+  name: '5',
+  wert: '3',
+}, {
+  id: 2,
+  idVertragsgegenstand: 19,
+  name: '',
+  wert: '5',
+}, {
+  id: 3,
+  idVertragsgegenstand: 21,
+  name: 'gfjf',
+  wert: '8',
+}, {
+  id: 4,
+  idVertragsgegenstand: 21,
+  name: 'fghj',
+  wert: '9',
+}, {
+  id: 5,
+  idVertragsgegenstand: 22,
+  name: 'dfsg',
+  wert: '5',
+}, {
+  id: 6,
+  idVertragsgegenstand: 8,
+  name: 'Blub',
+  wert: 'foo',
+}, {
+  id: 7,
+  idVertragsgegenstand: 8,
+  name: 'Test',
+  wert: '42',
+}, {
+  id: 10,
+  idVertragsgegenstand: 8,
+  name: 'xy',
+  wert: null,
+}, {
+  id: 11,
+  idVertragsgegenstand: 8,
+  name: 'x',
+  wert: 'a',
+}, {
+  id: 12,
+  idVertragsgegenstand: 24,
+  name: 'test',
+  wert: null,
+}, {
+  id: 13,
+  idVertragsgegenstand: 24,
+  name: 'cx',
+  wert: null,
+}, {
+  id: 14,
+  idVertragsgegenstand: 8,
+  name: 'fsdfsd',
+  wert: 'tesetsetse',
+}, {
+  id: 15,
+  idVertragsgegenstand: 28,
+  name: 'ttest',
+  wert: 'x',
+}, {
+  id: 16,
+  idVertragsgegenstand: 32,
+  name: 'Wert',
+  wert: 'Extrem hoch',
+}, {
+  id: 17,
+  idVertragsgegenstand: 32,
+  name: 'Wichtigkeit',
+  wert: 'Unendlich',
+}, {
+  id: 18,
+  idVertragsgegenstand: 34,
+  name: 'Test',
+  wert: 'bar',
+}, {
+  id: 19,
+  idVertragsgegenstand: 34,
+  name: 'fsdfsd',
+  wert: 'blablub',
+}, {
+  id: 20,
+  idVertragsgegenstand: 35,
+  name: 'fsdfsd',
+  wert: 'blablub',
+}, {
+  id: 21,
+  idVertragsgegenstand: 35,
+  name: 'foo',
+  wert: 'bar',
+}, {
+  id: 22,
+  idVertragsgegenstand: 36,
+  name: '23432',
+  wert: 'sdfsdf',
+}, {
+  id: 23,
+  idVertragsgegenstand: 38,
+  name: 'Key',
+  wert: '432-43232-4-324',
+}, {
+  id: 24,
+  idVertragsgegenstand: 39,
+  name: 'Blub',
+  wert: 'Foo!',
+}, {
+  id: 25,
+  idVertragsgegenstand: 39,
+  name: 'Wichtigkeit',
+  wert: 'Extrem',
+}, {
+  id: 27,
+  idVertragsgegenstand: 40,
+  name: 'test',
+  wert: 't',
+}, {
+  id: 28,
+  idVertragsgegenstand: 41,
+  name: '2',
+  wert: 'a',
+}, {
+  id: 29,
+  idVertragsgegenstand: 42,
+  name: 'Wichtigkeit',
+  wert: 'Extrem',
+}, {
+  id: 30,
+  idVertragsgegenstand: 42,
+  name: 'foo',
+  wert: 'bar!',
+}, {
+  id: 32,
+  idVertragsgegenstand: 44,
+  name: 'x',
+  wert: 'y',
+}, {
+  id: 33,
+  idVertragsgegenstand: 44,
+  name: 'y',
+  wert: 'd',
+}, {
+  id: 34,
+  idVertragsgegenstand: 45,
+  name: 'd',
+  wert: 'd',
+}, {
+  id: 35,
+  idVertragsgegenstand: 45,
+  name: 'sdf',
+  wert: 'dsf',
+}, {
+  id: 36,
+  idVertragsgegenstand: 46,
+  name: 'Key',
+  wert: '123-321-111-222',
+}, {
+  id: 38,
+  idVertragsgegenstand: 48,
+  name: 'sff',
+  wert: 'sdfsdfsd',
+}, {
+  id: 39,
+  idVertragsgegenstand: 48,
+  name: 'fsdfsd',
+  wert: 'sdffsd',
+}, {
+  id: 40,
+  idVertragsgegenstand: 49,
+  name: 'IMSI',
+  wert: '3216+54+984+984',
+}, {
+  id: 41,
+  idVertragsgegenstand: 50,
+  name: 'IMEI',
+  wert: '64651651651315',
+}, {
+  id: 43,
+  idVertragsgegenstand: 54,
+  name: 'Telefonnr.',
+  wert: '+49 12490324023',
+}, {
+  id: 44,
+  idVertragsgegenstand: 55,
+  name: 'Blub',
+  wert: 'foo',
+}, {
+  id: 45,
+  idVertragsgegenstand: 56,
+  name: 'Blub',
+  wert: 'Foo',
+}, {
+  id: 46,
+  idVertragsgegenstand: 61,
+  name: 'foo',
+  wert: 'bar',
+}, {
+  id: 47,
+  idVertragsgegenstand: 62,
+  name: 's',
+  wert: 'sdf',
+}];

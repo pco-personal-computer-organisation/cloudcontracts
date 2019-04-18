@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h3 class="modal-title">Vertragspartner {{$ctrl.vertragspartner.firmenname}} l&ouml;schen?</h3>
+</div>
+<div class="modal-body">
+  <p ng-hide="$ctrl.inUse">Wollen Sie den Vertragspartner &quot;{{$ctrl.vertragspartner.firmenname}}&quot; wirklich l&ouml;schen?</p>
+  <p ng-show="$ctrl.inUse">Dem Vertragspartner &quot;{{$ctrl.vertragspartner.firmenname}}&quot; sind noch Vertr&auml;ge zugeordnet. Was m&ouml;chten Sie tun?
+    <ul>
+      <li>Die Vertr&auml;ge einem anderen Vertragspartner zuordnen und den alten Vertragspartner l&ouml;schen oder</li>
+      <li>den Vertragspartner inkl. seiner Vertr&auml;ge l&ouml;schen.</li>
+    </ul>
+  </p>
+  <span ng-show="$ctrl.inUse">Neuer Vertragspartner:</span>
+  <ui-select ng-model="$ctrl.selectedItem" ng-show="$ctrl.inUse">
+    <ui-select-match>
+      <span ng-bind="$select.selected.firmenname"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="item in ($ctrl.vertragspartnerOpts | filter: $select.search) track by item.id">
+      <span ng-bind="item.firmenname"></span>
+    </ui-select-choices>
+  </ui-select>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.destroy()" ng-hide="$ctrl.inUse">L&ouml;schen</button>
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.destroyWithContracts()" ng-show="$ctrl.inUse">L&ouml;schen inkl. Vertr&auml;gen</button>
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.destroyAndMoveContracts()" ng-show="$ctrl.inUse">L&ouml;schen und Vertr&auml;ge verschieben</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Abbrechen</button>
+</div>

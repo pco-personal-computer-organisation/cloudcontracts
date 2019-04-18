@@ -1,0 +1,18 @@
+<category-sidebar></category-sidebar>
+
+<div class="container-fluid container-sidebar">
+
+  <h2 class="sub-header"><span ng-if="$ctrl.kategorieid">{{ ($ctrl.kategorien | filter:{id: $ctrl.kategorieid}:true)[0].name }}</span><span ng-if="!$ctrl.kategorieid">Alle Vertr&auml;ge</span></h2>
+
+  <table ng-table="$ctrl.tableParams" class="table table-condensed table-hover">
+    <tr ng-repeat="row in $data" ng-click="$ctrl.$location.path('/vertrag/' + row.id + '/')" class="cursor-pointer">
+      <td sortable="'bezeichnung'" data-title="'Bezeichnung'" filter="{bezeichnung: 'text'}">{{row.bezeichnung}}</td>
+      <td sortable="'vertragsnr'" data-title="'Vertragsnr.'" filter="{vertragsnr: 'text'}">{{row.vertragsnr}}</td>
+      <td sortable="'firmenname'" data-title="'Vertragspartner'" filter="{firmenname: 'text'}">{{row.firmenname}}</td>
+      <td sortable="'laufzeitende'" data-title="'Laufzeitende'" >{{row.laufzeitende | date: 'dd.MM.yyyy'}}</td><!--filter="{laufzeitende: 'daterange-filter.html'}"-->
+      <td sortable="'kuendigungsdatum'" data-title="'Kündigungsfrist'" >{{row.kuendigungsdatum | date: 'dd.MM.yyyy'}}</td><!--filter="{kuendigungsdatum: 'daterange-filter.html'}"-->
+      <td sortable="'status'" data-title="'Status'" filter="{status: 'select'}" filter-data="$ctrl.statusOpts">{{row.statusName}}</td>
+    </tr>
+    <tr ng-if="$data.length===0"><td class="text-center" colspan="6">Keine Vertr&auml;ge vorhanden</td></tr>
+  </table>
+</div>

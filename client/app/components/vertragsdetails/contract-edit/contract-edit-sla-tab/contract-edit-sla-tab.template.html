@@ -1,0 +1,26 @@
+<div class="panel-body edit-max-width">
+  <form class="form-horizontal" name="slaForm" unsaved-changes>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Neuer SLA Parameter</label>
+      <div class="col-md-2">
+        <input type="text" ng-model="$ctrl.newSLA.name" placeholder="Name" uib-typeahead="slaParam for slaParam in $ctrl.slaParams.names | filter:$viewValue | limitTo:8" class="form-control" ng-keypress="$event.which==13? $ctrl.addSLA() : null" name="slaName">
+      </div>
+      <div class="col-md-7">
+        <input type="text" class="form-control" name="NewValue" placeholder="Wert" ng-model="$ctrl.newSLA.wert" ng-disabled="!$ctrl.newSLA.name || $ctrl.newSLA.name.length===0" ng-keypress="$event.which==13? $ctrl.addSLA() : null">
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-default pull-left" ng-click="$ctrl.addSLA()" ng-disabled="!$ctrl.newSLA.name || $ctrl.newSLA.name.length===0 || !$ctrl.newSLA.wert || $ctrl.newSLA.wert.length===0"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group" ng-repeat="obj in $ctrl.vertrag.slas">
+      <label class="col-md-3 control-label" for="{{obj.name}}">{{obj.name}}</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="{{obj.name}}" ng-model="obj.wert">
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-default pull-left" ng-click="$ctrl.destroySLA(obj)" ng-if="$ctrl.user.role.name=='admin'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </form>
+</div>

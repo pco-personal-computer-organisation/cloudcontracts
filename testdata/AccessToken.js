@@ -1,0 +1,135 @@
+const moment = require('moment');
+
+const addDays = date => moment(date).add(moment().diff('2016-11-30', 'days'), 'days').toDate();
+
+module.exports = [{
+  id: '1kw8qqLsGRv4jDCiPrJ7hgt2Fk738Anci473Oc0mDocCGlguFF02EJRIuHvx1n2c',
+  ttl: 1209600,
+  created: addDays('2016-10-04T06:59:48.000Z'),
+  userId: 4,
+}, {
+  id: '20sbELkGn4XgumYueRnk6RYfe1lE85wHC9vvaIz5uSWEUDgKvu1UKLrWil8UsLqF',
+  ttl: 1209600,
+  created: addDays('2016-09-28T15:18:41.000Z'),
+  userId: 4,
+}, {
+  id: '3P87jZBQhmb8oWUivErd8dKKsB1x15acAOpIDG6W2GokhZTvK2o5uRSKOowO6G0l',
+  ttl: 1209600,
+  created: addDays('2015-08-27T11:50:08.000Z'),
+  userId: 5,
+}, {
+  id: '7hb886IS9zjH7HHigirmGnuPQFotyZ5HDyCtqqJG7ilWSPokk2K6CNiB8ZKWSpOE',
+  ttl: 1209600,
+  created: addDays('2016-07-20T09:42:22.000Z'),
+  userId: 4,
+}, {
+  id: '8x74oY759m8Z03P9DYuAhJVls3JYSK8p52H842zCFK1dQmfG375CKbHcaGtur8Ia',
+  ttl: 1209600,
+  created: addDays('2016-09-28T15:38:50.000Z'),
+  userId: 4,
+}, {
+  id: '9KmuuTCv0jPsg8PkOE6bNvVGn19S23EJmPHASMvXZRLyB4AGdJEGoKrXiA9LtNqC',
+  ttl: 1209600,
+  created: addDays('2016-08-10T14:01:10.000Z'),
+  userId: 22,
+}, {
+  id: 'EdriN8thJtMYX0C5r1GaLWjk5sdxV8LgC0cMUqzd6VxUZlpF5zPtSJ75HJ0BDhD9',
+  ttl: 1209600,
+  created: addDays('2016-11-04T08:55:10.000Z'),
+  userId: 4,
+}, {
+  id: 'EkAQJd91E7PDnDfMIvzVRa25Zzgh9GsYeWIzRnEKuJfqcw1q0YUOh6ANWDUfYk7b',
+  ttl: 1209600,
+  created: addDays('2016-07-19T14:01:33.000Z'),
+  userId: 12,
+}, {
+  id: 'gaqd0tF2iDOYSRySf6cUEcCZZDT8R03v3LJxt3MdkeWpfigGN3rd0JEz9lBJH3ZV',
+  ttl: 1209600,
+  created: addDays('2016-08-31T10:02:02.000Z'),
+  userId: 4,
+}, {
+  id: 'iZE9QQTemVMLvL3wQfyAjMd1KPyPG5YLat5qHNO2FpXx2SAEcNfXL83CFZeXMtWM',
+  ttl: 1209600,
+  created: addDays('2016-08-24T07:01:31.000Z'),
+  userId: 4,
+}, {
+  id: 'kt9q7I1XCLMDR9GCZhXJs7RszZOzDBGtElHFJ3iDAtYloAJldixZVbCyfnEk91mh',
+  ttl: 1209600,
+  created: addDays('2016-09-27T11:53:49.000Z'),
+  userId: 4,
+}, {
+  id: 'LyvEFWCMW4VMfjRPlBkuVNzckjuXdZa9MSA4R1qfrPVU2sxdqsW3FXc7HyQqg1bc',
+  ttl: 1209600,
+  created: addDays('2015-08-27T11:50:06.000Z'),
+  userId: 5,
+}, {
+  id: 'Psf1YKbt9WCD8F3hVpP4v2PDGRDSGwMldRDZmpwKgDYr4sHWg8LFWFYVxiYu8BRK',
+  ttl: 1209600,
+  created: addDays('2016-09-28T15:19:34.000Z'),
+  userId: 4,
+}, {
+  id: 'pSReg9OyzdbBcv8g4mlSxx9u0YqDVDwvuAf9kh1FZBEHR6DBy6kmdSEb2oicH6H0',
+  ttl: 1209600,
+  created: addDays('2016-07-19T14:02:31.000Z'),
+  userId: 12,
+}, {
+  id: 'qMaN8IPRQ92HE29VspgtfkIIsSBK7NMnDQBvCo9iusPdOrnpsbphrdrysWy8BfFi',
+  ttl: 1209600,
+  created: addDays('2016-11-29T12:47:58.000Z'),
+  userId: 4,
+}, {
+  id: 'QqHMHJLEzrjjgpMV4YDOjE62RbPEQPw6Fu0fVxNyAo9QMilImAlGmOybPBwPmEtl',
+  ttl: 1209600,
+  created: addDays('2015-08-27T11:52:56.000Z'),
+  userId: 5,
+}, {
+  id: 'QypB1MlArBLugtcAU7Rv6j1IGge00ZYjlX3hsgSY9LHnrSmOZQHp76Vzbo3m9kqH',
+  ttl: 1209600,
+  created: addDays('2016-08-18T07:22:43.000Z'),
+  userId: 4,
+}, {
+  id: 'rtCNJPuQwH6TjgW1YlaVmbbxhXA9kfo7KM6IzBWl9T4adNxGO1Q05zoJAOLJTiqg',
+  ttl: 1209600,
+  created: addDays('2015-08-18T13:00:30.000Z'),
+  userId: 5,
+}, {
+  id: 'SSjiJxUgQC18JngseNl31f9ywMNZILnI2P79sCc6zKh2S1dhFTV7IrAL1LfLEHwQ',
+  ttl: 1209600,
+  created: addDays('2016-08-05T07:52:38.000Z'),
+  userId: 4,
+}, {
+  id: 'uKz7c4pHMNBMqV7qZc9Whwkq06UeJQVaNNT9LTDd0GjZfLKhITXAScG1thPAb1AT',
+  ttl: 1209600,
+  created: addDays('2016-08-24T09:13:57.000Z'),
+  userId: 4,
+}, {
+  id: 'V7eABeRChxdBIVzcr6BkQT7Qm1D6ZtQ1DGw5mU4mAIYad9keESqyC7lKBPqOLCCH',
+  ttl: 1209600,
+  created: addDays('2016-07-20T09:42:30.000Z'),
+  userId: 4,
+}, {
+  id: 'WeduH1kPLKXQdTDMRHDA2AvO845R5b9qYVOWa3FpybFpyCMUWq6JfDuMQXM5vz7u',
+  ttl: 1209600,
+  created: addDays('2016-08-31T10:03:56.000Z'),
+  userId: 4,
+}, {
+  id: 'WeePTWu2W2ACffkW1Ap5CG2f1bndciD5xeS2fGC4VejNCDPAUqDI6hYWU3inS7KB',
+  ttl: 1209600,
+  created: addDays('2016-08-08T08:46:35.000Z'),
+  userId: 4,
+}, {
+  id: 'x2eIPT1JmYLx5SaZ4kd8xfH4caqsOQPnZ1K2if3ZDA53NBKQRvAy074HHg0fNaKy',
+  ttl: 1209600,
+  created: addDays('2015-07-31T11:53:54.000Z'),
+  userId: 5,
+}, {
+  id: 'X9j9iH5CjHxSA9R8guHrzfKhMfMJQJh4FoNhu1sEW2remPZBD0AxAyNbdhgkMz9J',
+  ttl: 1209600,
+  created: addDays('2016-11-29T13:30:38.000Z'),
+  userId: 4,
+}, {
+  id: 'yXgXQyAMP6K3Ic63BWCrQmFBuKBb7F9UibY8vEEE95W3kO9kpV3hn7Qa8y23ar55',
+  ttl: 1209600,
+  created: addDays('2015-08-18T12:58:59.000Z'),
+  userId: 5,
+}];

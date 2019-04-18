@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="/vertrag/edit/{{$ctrl.currentCategory? $ctrl.currentCategory : ''}}" ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Neuer Vertrag</a></li>
+    <li role="separator" class="divider" ng-if="$ctrl.user.role.name!='readonly'"><hr></li>
+    <li role="presentation" ng-class="{active: !$ctrl.currentCategory}"><a href="/vertragsliste/">Alle Vertr&auml;ge</a>
+      <ul class="nav nav-pills nav-stacked vertragsgruppen" ng-init="$ctrl.popover=[]">
+        <li role="presentation"><input type="text" class="form-control edit-category" placeholder="Neue Gruppe" ng-model="$ctrl.newCategory" ng-keypress="$event.which==13? $ctrl.addCategory($ctrl.newCategory) : null"><!--<a href ng-if="$ctrl.user.role.name!='readonly'"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Neue Gruppe</a>--></li>
+        <li ng-repeat="kategorie in $ctrl.kategorien" role="presentation" class="edit_hover_class" ng-class="{active: $ctrl.currentCategory==kategorie.id}" ng-init="$ctrl.popover[kategorie.id] = false" ng-mouseenter="$ctrl.popoverShow(kategorie.id, true, 'sidebar')" ng-mouseleave="$ctrl.popoverShow(kategorie.id, false, 'sidebar')">
+          <a href="/vertragsliste/{{kategorie.id}}/" ng-if="!kategorie.editing" uib-popover-template="'category-menu.template.html'" popover-trigger="none" popover-placement="right" popover-is-open="$ctrl.popover[kategorie.id]" popover-append-to-body="true" popover-animation="false"><span>{{kategorie.name}}</span></a><!--uib-popover-html="$ctrl.menuTemplate"-->
+          <input type="text" class="form-control edit-category" placeholder="Vertragsgruppe" ng-model="kategorie.name" ng-keypress="$event.which==13? $ctrl.saveCategory(kategorie) : null" ng-blur="$ctrl.saveCategory(kategorie)" ng-if="kategorie.editing">
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
