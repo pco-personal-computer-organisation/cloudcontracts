@@ -11,7 +11,7 @@
     "test": "node_modules/.bin/tap --100 tests/ ; true"
   },
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.7.9",
     "angular-animate": "^1.5.8",
     "angular-daterangepicker": "^0.2.3-alpha1",
     "angular-file-saver": "^1.1.2",
