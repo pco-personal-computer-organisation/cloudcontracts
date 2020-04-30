@@ -31,7 +31,7 @@
     "csshake": "^1.5.1",
     "deep-diff": "^0.3.3",
     "errorhandler": "^1.1.1",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "later": "^1.2.0",
     "lodash": "^4.17.13",
     "loopback": "^2.34.1",
