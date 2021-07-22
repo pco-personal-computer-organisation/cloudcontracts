@@ -50,7 +50,7 @@
     "select2": "^4.0.3",
     "serve-favicon": "^2.0.1",
     "ui-select": "^0.19.6",
-    "xlsx": "^0.11.18",
+    "xlsx": "^0.17.0",
     "xlsx-style": "^0.8.13"
   },
   "optionalDependencies": {
