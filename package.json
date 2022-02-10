@@ -81,7 +81,7 @@
     "karma-opera-launcher": "^1.0.0",
     "mocha": "^3.1.2",
     "ng-annotate-webpack-plugin": "^0.2.1-pre",
-    "node-sass": "^4.5.2",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^6.0.5",
     "script-loader": "^0.7.0",
