@@ -22,7 +22,7 @@
     "angular-spinner": "^1.0.1",
     "angular-translate": "^2.13.0",
     "angular-ui-bootstrap": "^2.2.0",
-    "async": "^2.0.0-rc.6",
+    "async": "^3.2.2",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.4.1",
     "bootstrap-daterangepicker": "^2.1.24",
