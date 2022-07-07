@@ -40,7 +40,7 @@
     "loopback-connector-mysql": "^2.2.0",
     "loopback-context": "^1.0.0",
     "loopback-datasource-juggler": "^2.51.0",
-    "moment": "^2.19.3",
+    "moment": "^2.29.4",
     "moment-range": "^3.0.3",
     "moment-recur": "^1.0.5",
     "money": "^0.2.0",
